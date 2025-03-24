@@ -1,5 +1,6 @@
 #[allow(unused_imports)]
 use std::io::{self, Write};
+use std::os::windows::process;
 
 fn main() {
     
@@ -14,8 +15,19 @@ fn main() {
         let mut input = String::new();
         stdin.read_line(&mut input).unwrap();
 
-        // Invalid command
-        println!("{}: command not found", input.trim());
+
+
+        match input.trim() {
+            // Exit command
+            "exit 0" => break,
+            _ =>
+            { // Invalid command
+            println!("{}: command not found", input.trim())
+            },
+
+        };
+
+        
 
     }
     
