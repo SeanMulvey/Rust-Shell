@@ -16,7 +16,7 @@ fn main() {
         stdin.read_line(&mut input).unwrap();
 
 
-
+        // Switch for commands
         match input.trim() {
             // Exit command
             "exit 0" => break,
