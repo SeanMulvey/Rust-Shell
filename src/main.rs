@@ -15,23 +15,20 @@ fn main() {
         let mut input = String::new();
         stdin.read_line(&mut input).unwrap();
 
-        
-        // Isolate the command ny separating at white space
-       let command = get_command(input.clone());
-       let mut arg = get_arg(input.clone());
-        // Switch for commands
-        match command.trim() {
-            "echo" => {
-                arg = echo(arg);
+        // Switch for cli input
+        match input.trim(){
+            // echo case
+            input if input.starts_with("echo ") => {
+                println!("{}", &input[5..]);
             },
-            // Exit command
-            "exit" => break,
-            _ =>
-            { // Invalid command
-            println!("{}: command not found", input.trim())
+            // exit case
+            "exit 0" => break,
+            // Default
+            _ => {
+                println!("{}: command not found", input.trim());
             },
-
         };
+       
 
         
 
@@ -39,46 +36,5 @@ fn main() {
     
 }
 
-fn echo(s: String) -> String {
-    println!("{s}");
-    s
-}
-
-fn get_command(s: String) -> String{
-    let command = {
-    let mut c = String::from("");
-    for i in s.chars() {
-        if i != ' '{
-            c.push(i);
-        }else{
-            break;
-        }
-    }
-    c
-    };
-    command
-
-}
-
-fn get_arg(s: String) -> String{
-    let mut c_over = false;
-
-    let arg =
-    {
-        let mut a = String::from("");
-        for i in s.chars(){
-            if c_over {
-                a.push(i);
-            
-            }
-        if i == ' '{
-            c_over = true;
-        }
-        
-        }
-        a
-    };
-    arg
 
 
-}
