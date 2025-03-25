@@ -20,6 +20,10 @@ fn main() {
             // type case
             input if input.starts_with("type ") => {
                 match &input[5..] {
+                    // type
+                    "type" => {
+                        println!("type is a shell builtin");
+                    },
                     // echo
                     "echo" => {
                         println!("echo is a shell builtin");
