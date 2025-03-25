@@ -17,6 +17,24 @@ fn main() {
 
         // Switch for cli input
         match input.trim(){
+            // type case
+            input if input.starts_with("type ") => {
+                match &input[5..] {
+                    // echo
+                    "echo" => {
+                        println!("echo is a shell builtin");
+                    },
+                    // exit
+                    "exit" =>
+                    {
+                        println!("exit is a shell builtin");
+                    },
+                    //Default
+                    _ => {
+                        println!("{}: not found", &input[5..] );
+                    },
+                };
+            }
             // echo case
             input if input.starts_with("echo ") => {
                 println!("{}", &input[5..]);
@@ -28,13 +46,12 @@ fn main() {
                 println!("{}: command not found", input.trim());
             },
         };
-       
-
-        
-
     }
     
 }
+
+
+
 
 
 
