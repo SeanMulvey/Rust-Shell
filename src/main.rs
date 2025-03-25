@@ -61,18 +61,18 @@ fn get_command(s: String) -> String{
 }
 
 fn get_arg(s: String) -> String{
-    let mut cOver = false;
+    let mut c_over = false;
 
     let arg =
     {
         let mut a = String::from("");
         for i in s.chars(){
-            if cOver {
+            if c_over {
                 a.push(i);
             
             }
         if i == ' '{
-            cOver = true;
+            c_over = true;
         }
         
         }
