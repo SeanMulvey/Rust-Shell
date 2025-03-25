@@ -18,11 +18,11 @@ fn main() {
         
         // Isolate the command ny separating at white space
        let command = get_command(input.clone());
-       let arg = get_arg(input.clone());
+       let mut arg = get_arg(input.clone());
         // Switch for commands
         match command.trim() {
             "echo" => {
-                echo(arg);
+                arg = echo(arg);
             },
             // Exit command
             "exit" => break,
