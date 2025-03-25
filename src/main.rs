@@ -15,6 +15,9 @@ fn main() {
         let mut input = String::new();
         stdin.read_line(&mut input).unwrap();
 
+        // PATH var
+        let mut path = String::from("");
+
         // Switch for cli input
         match input.trim(){
             // type case
@@ -42,6 +45,11 @@ fn main() {
             // echo case
             input if input.starts_with("echo ") => {
                 println!("{}", &input[5..]);
+            },
+            // path
+            input if input.starts_with("PATH=") => {
+                println!("TODO: Update PATH");
+
             },
             // exit case
             "exit 0" => break,
